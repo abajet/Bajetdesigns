@@ -1,0 +1,797 @@
+
+/* Global */
+
+*, 
+*::before, 
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-family: "Share Tech Mono", monospace;
+    font-size: 12px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    color: #e7e7e7;
+    background: linear-gradient(
+        120deg,
+        rgb(0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.973) 50%,
+        rgb(83, 83, 83) 100%
+    );
+}
+
+section {
+    padding: 5rem 0;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(3, 155, 155);
+}
+
+a:hover {
+    color: rgb(255, 242, 60);
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    font-size: 1.4rem;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Style for section: Nav */
+
+header {
+    width: 100%;
+    height: 5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Sets the width and centers all content to the center*/
+.container {
+    width: 100%;
+    max-width: 85rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Sets the width and centers all content to the center*/
+.nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2)
+}
+
+.logo {
+    width: 5rem;
+    position: fixed;
+    left: 20;
+    top: 0;
+}
+/* makes the inNout div go to the top right*/
+.inNout {
+    cursor: pointer;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: rgba(55, 55, 55, 0.6);
+    padding: 1.2rem;
+    border-radius: 0% 0% 0% 30%;
+    z-index: 999;
+}
+
+.lettuce1 {
+    width: 15px;
+    height: 3px;
+    margin: 5px 0;
+    background: linear-gradient(
+        135deg, 
+        rgb(58, 219, 198) 0%,
+        rgb(255, 255, 255) 100%
+    );
+}
+
+.meat {
+    width: 30px;
+    height: 3px;
+    margin: 5px 0;
+    background: linear-gradient(
+        135deg, 
+        rgb(58, 219, 198) 0%,
+        rgb(255, 255, 255) 100%
+    );
+}
+
+.lettuce2{
+    width: 15px;
+    height: 3px;
+    margin: 5px 0;
+    margin-left: 15px;
+    background: linear-gradient(
+        135deg, 
+        rgb(58, 219, 198) 0%,
+        rgb(255, 255, 255) 100%
+    );
+}
+
+/*Javascript the inNout menu to be an X*/
+
+.toggle {
+    background: none;
+}
+
+.toggle .lettuce1 {
+    transform: rotate(-45deg) translate(-5px, 6px) scaleX(2);
+    margin-left: 0px;
+}
+
+.toggle .meat {
+    opacity: 0;
+}
+
+.toggle .lettuce2 {
+    transform: rotate(45deg) translate(-5px, -6px) scaleX(2);
+    margin-left: 0px;
+}
+
+/*side bar stylin'!*/
+.self {
+    height: 9rem;
+    width: auto;
+    border-radius: 50%;
+    display: block;
+    margin: 1.5rem 0;
+}
+
+span.skim {
+    font-family: "Zilla Slab Highlight", monospace;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: white;
+
+}
+
+.name {
+    display: block;
+    font-size: 1.4rem;
+    color: rgb(14, 135, 249);
+}
+
+.nav-options {
+    background-color: #222222;
+    position: fixed;
+    top: 0;
+    right: -25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 998;
+    transition: all 650ms ease-in-out;
+    width: 24rem;
+    height: 100vh;
+}
+
+/*Javascript the sidebar to move when you click on it*/
+.nav-options.active {
+    right: 0;
+}
+
+.nav-option {
+    margin: 1.2rem 0;
+}
+
+.menu-link {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: #cecece;
+    letter-spacing: 1.5px;
+    opacity: 0;
+}
+
+.menu-link:hover {
+    color: rgb(255, 242, 60);
+}
+
+
+/*CSS Animation the sidebar to enter and leave */
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translate(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0px);
+    }
+}
+
+
+/* Putting flare in the Hero Area when you first enter the site */
+
+.hero-area {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(
+        300deg,
+        rgba(0, 12, 77, 0.9) 0%,
+        rgba(0,0,0,0.8) 100%
+    ),
+    url("images/Hero.svg") center no-repeat;
+    background-size: contain;
+    position: relative;
+}
+
+.hero {
+    left: 50%;
+    top: 50%; 
+    width: 100%;
+    max-width: 58rem;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    transform: translate(-50%, -50%);
+}
+
+.hero h2 {
+    width: 29ch;
+    margin: auto;
+    letter-spacing: 1.2rem;
+    font-size: 2rem;
+    font-weight: 400;
+    overflow: hidden;
+
+
+    /*allows to not wrap to two lines*/
+    white-space: nowrap;
+
+    /*this is building the blinking*/
+    border-right: 4px solid rgba( 255,255,255, 1);
+    animation: type 5s steps(28), flickr 1s ease-in-out 8s infinite;
+}
+
+/*make the above "blink"*/
+
+@keyframes type {
+    75% {
+        width: 0ch;
+        color: rgba(249, 105, 14, 1);
+    }
+    100% {
+        width: 36ch;
+    }
+}
+
+/*make the border-right flickr*/
+@keyframes flickr {
+    0% {
+        border-right: 4px solid (255, 255, 255, 0);
+    }
+    100% {
+        border-right: 4px solid rgb(194, 194, 194);
+    }
+}
+
+/*continue to make edits to the hero / landing page*/
+.hero h3 {
+    font-size: 3rem;
+    margin: 1rem 0;
+    color: rgba(249, 105, 14, 1);
+    background: linear-gradient(
+        to right, 
+        rgb(249, 41, 14) 0%,
+        rgb(32, 255, 255) 50%,
+        rgb(255, 32, 100) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+.hero p {
+    font-size: 1.7rem;
+    text-transform: none;
+    font-weight: 400;
+}
+
+.call-to-action {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    margin: 0 9px; 
+    background: rgba(3, 155, 155);
+    border-radius: 2rem;
+    color: #fafafa;
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+}
+
+.button:hover {
+    color: #fafafa;
+    background: rgba(189, 72, 0);
+}
+
+/*styling the about*/
+
+.aboutMe {
+    width: 100%;
+    min-height: 100vh;
+    max-width: 70rem;
+    margin: auto;
+    
+    
+}
+
+.imageMe img {
+    box-shadow: 20px 20px 60px 0 rgba(0, 255, 255, 0.15);
+    border-radius: 50%;
+    height: 12rem;
+    width: auto;
+    margin: 2rem;
+    
+}
+
+
+
+/*rainbow line*/
+hr {
+    margin: 4rem 4rem;
+    background: linear-gradient(
+        to right, 
+        rgb(249, 41, 14) 0%,
+        rgb(32, 255, 255) 50%,
+        rgb(255, 32, 100) 100%
+    );
+    border: 0;
+    height: 1px;
+}
+
+/*emphasize skim*/
+span.skim {
+    font-family: "Zilla Slab Highlight", monospace;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: white;
+
+}
+
+/*about me*/
+
+.hero-area2 {
+    width: 100%;
+    height: 30vh;
+    background: linear-gradient(
+        300deg,
+        rgba(0, 12, 77, 0.9) 0%,
+        rgba(0,0,0,0.8) 100%
+    ),
+
+}
+
+
+.aboutMe2, .container2 {
+    flex-direction: column;
+    width: 100%;
+    max-width: 85rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.hello p {
+    font-size: 1.5rem;
+    width: 100%;
+    padding-left: 3rem;
+    letter-spacing: .1rem;
+    line-height: 3rem;
+    font-family: "open sans", sans-serif;
+}
+
+.hero2 {
+    left: 50%;
+    top: 20%; 
+    width: 100%;
+    max-width: 58rem;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    transform: translate(-50%, -50%);
+}
+
+.hero2 h2 {
+    width: 27ch;
+    margin: auto;
+    letter-spacing: 1.2rem;
+    font-size: 2.5rem;
+    font-weight: 400;
+    overflow: hidden;
+
+    /*allows to not wrap to two lines*/
+    white-space: nowrap;
+
+    /*this is building the blinking*/
+    border-right: 4px solid rgba( 255,255,255, 1);
+    animation: type2 5s steps(27), flickr2 1s ease-in-out 5s infinite;
+}
+
+@keyframes type2 {
+    18% {
+        width: 0ch;
+        color: rgba(249, 105, 14, 1);
+    }
+    100% {
+        width: 27ch;
+    }
+}
+
+/*make the border-right flickr*/
+@keyframes flickr2 {
+    0% {
+        border-right: 4px solid (255, 255, 255, 0);
+    }
+    100% {
+        border-right: 4px solid rgb(194, 194, 194);
+    }
+}
+
+.hero2 p {
+    font-size: 1.7rem;
+    text-transform: none;
+    font-weight: 400;
+    color: rgb(41, 143, 211);
+}
+
+/*styling the about*/
+
+.aboutMe2 {
+    width: 100%;
+    min-height: 100vh;
+    max-width: 70rem;
+    margin: auto;
+    
+    
+}
+
+.aboutMe2 .container2 {
+    display: flex;
+    align-items: center;
+    min-height: 30vh;
+}
+
+.imageMe2 img {
+    box-shadow: 20px 20px 60px 0 rgba(0, 255, 255, 0.15);
+    border-radius: 50%;
+    height: 12rem;
+    width: auto;
+    margin: 2rem;
+    
+}
+
+.elevatorPitch2 {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.elevatorPitch2 p {
+    font-family: "share tech mono", serif;
+    font-size: 1.5rem;
+    padding: 0;
+    margin: 0 0 1.45rem;
+    line-height: 3.5rem;
+}
+
+/*rainbow line*/
+hr {
+    margin: 4rem 4rem;
+    background: linear-gradient(
+        to right, 
+        rgb(249, 41, 14) 0%,
+        rgb(32, 255, 255) 50%,
+        rgb(255, 32, 100) 100%
+    );
+    border: 0;
+    height: 1px;
+}
+
+.heading2 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 5rem;
+}
+
+.heading2 h2 {
+    font-size: 3rem;
+    margin: 0.5rem 0 1rem;
+    font-family: "Share Tech Mono", serif;
+    color: rgba(249, 105, 14, 1);
+    background: linear-gradient(
+            200deg,
+            rgb(52, 171, 180) 0%,
+            rgba(30, 113, 180, 0.973) 50%,
+            rgba(30, 180, 180, 0.973) 70%,
+            rgb(35, 160, 108) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+}
+
+/*emphasize skim*/
+span.skim {
+    font-family: "Zilla Slab Highlight", monospace;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: rgb(233, 233, 233);
+    letter-spacing: 0;
+
+}
+
+.bold {
+    font-size: 3rem;
+    margin: 0.5rem 0 1rem;
+    font-family: "Opens Sans", serif;
+    color: rgba(249, 105, 14, 1);
+    background: linear-gradient(
+            200deg,
+            rgb(52, 171, 180) 0%,
+            rgba(30, 113, 180, 0.973) 50%,
+            rgba(30, 180, 180, 0.973) 70%,
+            rgb(35, 160, 108) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+}
+
+.twrapper {
+    min-height: 100vh;
+    margin-bottom: 10rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline {
+    width: 80%;
+    height: auto;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+  .timeline ul li {
+    padding: 20px;
+    background-color:rgb(36, 36, 36);
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  .timeline ul li:last-child {
+    margin-bottom: 0;
+  }
+  .timeline-content h2 {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+    margin-bottom: 10px;
+  }
+  .timeline-content p {
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 300;
+    font-family: "Poppins", sans-serif;
+  }
+  .timeline-content .date {
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+  
+  /*Footer*/
+
+footer {
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    padding: 2.5rem;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: black;
+
+}
+
+footer p {
+    font-size: 1.3rem;
+    line-height: 2rem;
+    margin: 3rem;
+}
+
+.footer-item {
+    font-size: 1.3rem;
+    margin-left: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    header,
+    .hero-area2,
+    .hero2,
+    .elevatorPitch2,
+    .aboutMe2,
+    .twrapper,
+    .timeline,
+    footer {
+        width: 100%;
+        margin: 0;
+    }
+
+    footer,
+    footer p,
+    .footer-item {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  
+
+  .footer-item {
+      margin-bottom: 10px;
+  }
+
+  footer p {
+      margin-top: 10px;
+  }
+
+  .timeline ul li {
+    padding: 10px;
+    background-color:rgb(36, 36, 36);
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+    .twrapper {
+        display: flex;
+        align-items: left;
+        justify-content: left;
+    }
+
+    .timeline {
+        width: 100%;
+        margin: 0px 30px 0 30px;
+        padding: 0;
+        max-width: 500px;
+        margin-bottom: 10px;
+        position: relative;
+    }
+
+    .timeline-content .date {
+        font-size: .7rem;
+    }
+
+    .timeline-content h2 {
+        font-size: 1.3rem;
+    }
+
+    .timeline-content p {
+        font-size: 1rem;
+    }
+
+    .hero2 h2 {
+        font-size: 1.7rem;
+    }
+
+    .elevatorPitch2 p {
+        font-size: 1rem;
+        width: 90%;
+        padding-left: 3rem;
+        color: rgb(226, 226, 226);
+    }
+    
+    .elevatorPitch2 .skim {
+    font-size: 1.3rem;
+    width: 90%;
+    color: rgb(252, 252, 252);
+    }
+  
+    
+  
+      .timeline ul li:nth-child(odd)::before {
+          transform: translate(50%, -50%);
+          right: -30px;
+      }
+      .timeline ul li:nth-child(even)::before {
+          transform: translate(-50%, -50%);
+          left: -30px;
+      }
+      
+    }
+
+
+  @media only screen and (min-width: 768px) {
+      
+
+    .timeline:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background-color:rgb(189, 60, 27);
+    }
+    .timeline ul li {
+        width: 50%;
+        position: relative;
+        margin-bottom: 50px;
+    }
+    .timeline ul li:nth-child(odd){
+        float: left;
+        clear: right;
+        transform: translate(-30px);
+        border-radius: 20px 0px 20px 20px;
+    }
+
+    .timeline ul li:nth-child(even){
+        float: right;
+        clear: left;
+        transform: translate(30px);
+        border-radius: 0px 20px 20px 20px;
+        
+    }
+
+    .timeline ul li::before {
+        content: "";
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background-color:rgb(189, 60, 27);
+        top: 0px;
+    }
+
+    .timeline ul li:nth-child(odd)::before {
+        transform: translate(50%, -50%);
+        right: -30px;
+    }
+    .timeline ul li:nth-child(even)::before {
+        transform: translate(-50%, -50%);
+        left: -30px;
+    }
+
+    .timeline-content .date {
+        position: absolute;
+        top: -30px;
+    }
+
+    .timeline ul li:hover::before {
+        background-color: rgb(0, 195, 255);
+    }
+  }
+
+
+

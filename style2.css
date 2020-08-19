@@ -1,0 +1,659 @@
+
+/* Global */
+
+*, 
+*::before, 
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-family: "Share Tech Mono", monospace;
+    font-size: 12px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    color: #e7e7e7;
+    background: linear-gradient(
+        120deg,
+        rgb(79, 157, 230) 0%,
+        rgba(15, 36, 107) 40%,
+        rgba(18, 104, 119, 0.973) 70%,
+        rgb(46, 48, 85) 100%
+    );
+}
+
+section {
+    padding: 5rem 0;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(3, 155, 155);
+}
+
+a:hover {
+    color: rgb(255, 242, 60);
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    font-size: 1.4rem;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Style for section: Nav */
+
+header {
+    width: 100%;
+    height: 5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Sets the width and centers all content to the center*/
+.container {
+    width: 100%;
+    max-width: 85rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Sets the width and centers all content to the center*/
+.nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2)
+}
+
+.logo {
+    width: 5rem;
+    position: fixed;
+    left: 20;
+    top: 0;
+}
+/* makes the inNout div go to the top right*/
+.inNout {
+    cursor: pointer;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: rgba(55, 55, 55, 0.6);
+    padding: 1.2rem;
+    border-radius: 0% 0% 0% 30%;
+    z-index: 999;
+}
+
+.lettuce1 {
+    width: 15px;
+    height: 3px;
+    margin: 5px 0;
+    background: linear-gradient(
+        135deg, 
+        rgb(58, 219, 198) 0%,
+        rgb(255, 255, 255) 100%
+    );
+}
+
+.meat {
+    width: 30px;
+    height: 3px;
+    margin: 5px 0;
+    background: linear-gradient(
+        135deg, 
+        rgb(58, 219, 198) 0%,
+        rgb(255, 255, 255) 100%
+    );
+}
+
+.lettuce2{
+    width: 15px;
+    height: 3px;
+    margin: 5px 0;
+    margin-left: 15px;
+    background: linear-gradient(
+        135deg, 
+        rgb(58, 219, 198) 0%,
+        rgb(255, 255, 255) 100%
+    );
+}
+
+/*Javascript the inNout menu to be an X*/
+
+.toggle {
+    background: none;
+}
+
+.toggle .lettuce1 {
+    transform: rotate(-45deg) translate(-5px, 6px) scaleX(2);
+    margin-left: 0px;
+}
+
+.toggle .meat {
+    opacity: 0;
+}
+
+.toggle .lettuce2 {
+    transform: rotate(45deg) translate(-5px, -6px) scaleX(2);
+    margin-left: 0px;
+}
+
+/*side bar stylin'!*/
+.self {
+    height: 9rem;
+    width: auto;
+    border-radius: 50%;
+    display: block;
+    margin: 1.5rem 0;
+}
+
+.name {
+    display: block;
+    font-size: 1.4rem;
+    color: rgb(14, 135, 249);
+}
+
+.nav-options {
+    background-color: #222222;
+    position: fixed;
+    top: 0;
+    right: -25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 998;
+    transition: all 650ms ease-in-out;
+    width: 24rem;
+    height: 100vh;
+}
+
+/*Javascript the sidebar to move when you click on it*/
+.nav-options.active {
+    right: 0;
+}
+
+.nav-option {
+    margin: 1.2rem 0;
+}
+
+.menu-link {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: #cecece;
+    letter-spacing: 1.5px;
+    opacity: 0;
+}
+
+.menu-link:hover {
+    color: rgb(255, 242, 60);
+}
+
+
+/*CSS Animation the sidebar to enter and leave */
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translate(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0px);
+    }
+}
+
+
+/* Putting flare in the Hero Area when you first enter the site */
+
+.hero-area {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(
+        300deg,
+        rgba(0, 12, 77, 0.9) 0%,
+        rgba(0,0,0,0.8) 100%
+    ),
+    url("images/Hero.svg") center no-repeat;
+    background-size: contain;
+    position: relative;
+}
+
+.hero {
+    left: 50%;
+    top: 50%; 
+    width: 100%;
+    max-width: 58rem;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    transform: translate(-50%, -50%);
+}
+
+.hero h2 {
+    width: 27ch;
+    margin: auto;
+    letter-spacing: 1.2rem;
+    font-size: 2rem;
+    font-weight: 400;
+    overflow: hidden;
+
+    /*allows to not wrap to two lines*/
+    white-space: nowrap;
+
+    /*this is building the blinking*/
+    border-right: 4px solid rgba( 255,255,255, 1);
+    animation: type 5s steps(27), flickr 1s ease-in-out 8s infinite;
+}
+
+/*make the above "blink"*/
+
+@keyframes type {
+    75% {
+        width: 0ch;
+        color: rgba(249, 105, 14, 1);
+    }
+    100% {
+        width: 27ch;
+    }
+}
+
+/*make the border-right flickr*/
+@keyframes flickr {
+    0% {
+        border-right: 4px solid (255, 255, 255, 0);
+    }
+    100% {
+        border-right: 4px solid rgb(194, 194, 194);
+    }
+}
+
+/*continue to make edits to the hero / landing page*/
+.hero h3 {
+    font-size: 3rem;
+    margin: 1rem 0;
+    color: rgba(249, 105, 14, 1);
+    background: linear-gradient(
+        to right, 
+        rgb(249, 41, 14) 0%,
+        rgb(32, 255, 255) 50%,
+        rgb(255, 32, 100) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+.hero p {
+    font-size: 1.7rem;
+    text-transform: none;
+    font-weight: 400;
+}
+
+.call-to-action {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    margin: 0 9px; 
+    background: rgba(3, 155, 155);
+    border-radius: 2rem;
+    color: #fafafa;
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+}
+
+.button:hover {
+    color: #fafafa;
+    background: rgba(189, 72, 0);
+}
+
+/*styling the about*/
+
+.aboutMe {
+    width: 100%;
+    min-height: 100vh;
+    max-width: 70rem;
+    margin: auto;
+    
+    
+}
+
+.aboutMe .container {
+    display: flex;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.imageMe img {
+    box-shadow: 20px 20px 60px 0 rgba(0, 255, 255, 0.15);
+    border-radius: 50%;
+    height: 12rem;
+    width: auto;
+    margin: 2rem;
+    
+}
+
+.elevatorPitch {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.elevatorPitch h3 {
+    font-size: 3rem;
+    font-family: "Share Tech Mono", serif;
+    margin-bottom: 20px;
+    letter-spacing: .5rem;;
+    margin-top: 2rem;
+    color: rgba(249, 105, 14, 1);
+    background: linear-gradient(
+        to right, 
+        rgb(231, 156, 42) 0%,
+        rgb(207, 87, 17) 50%,
+        rgb(194, 26, 20) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.elevatorPitch p {
+    font-family: "Open Sans", serif;
+    font-size: 2rem;
+    padding: 0;
+    margin: 0 0 1.45rem;
+    line-height: 3rem;
+}
+
+/*rainbow line*/
+hr {
+    margin: 4rem 4rem;
+    background: linear-gradient(
+        to right, 
+        rgb(249, 41, 14) 0%,
+        rgb(32, 255, 255) 50%,
+        rgb(255, 32, 100) 100%
+    );
+    border: 0;
+    height: 1px;
+}
+
+/*emphasize skim*/
+span.skim {
+    font-family: "Zilla Slab Highlight", monospace;
+    font-size: 1.5rem;
+    font-weight: 600;
+
+}
+
+/*why hire me*/
+
+.hireMe {
+    margin: 10rem;
+    min-height: 100vh;
+    max-width: 90rem;
+    padding:1rem 0;
+    
+}
+
+.container1 {
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.heading {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 5rem;
+}
+
+.heading h2 {
+    font-size: 3rem;
+    margin: 0.5rem 0 1rem;
+    font-family: "Share Tech Mono", serif;
+    color: rgba(249, 105, 14, 1);
+    background: linear-gradient(
+        to right, 
+        rgb(231, 156, 42) 0%,
+        rgb(207, 87, 17) 50%,
+        rgb(194, 26, 20) 100%
+    );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+}
+
+.heading p {
+    font-family: "Open Sans", serif;
+    text-transform: initial;
+    font-size: 1.2rem;
+}
+
+.canDo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 2rem;
+}
+
+.canDo-option {
+    height: 25rem;
+    padding: 3rem;
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    cursor: default;
+    margin-bottom: 10rem;
+    background: linear-gradient(
+        200deg,
+        rgb(0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.973) 50%,
+        rgb(51, 51, 51) 100%
+    );
+    box-shadow: 9px 10px 10px 0 rgba(252, 252, 252, 0.178);
+    
+}
+
+/*
+color: rgba(249, 105, 14, 1);
+background: linear-gradient(
+        120deg,
+        rgb(52, 103, 180) 0%,
+        rgba(30, 40, 180, 0.973) 50%,
+        rgb(35, 160, 108) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    color: rgba(249, 105, 14, 1);
+    background: linear-gradient(
+        to right, 
+        rgb(231, 156, 42) 0%,
+        rgb(207, 87, 17) 50%,
+        rgb(194, 26, 20) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    */
+
+.canDo-option h3 {
+    font-family: "Open Sans", monospace;
+    font-size: 1.3rem;
+    letter-spacing: .5rem;
+    margin-bottom: 1rem;
+    color: rgba(249, 105, 14, 1);
+    background: linear-gradient(
+        to right, 
+        rgb(231, 156, 42) 0%,
+        rgb(207, 87, 17) 50%,
+        rgb(194, 26, 20) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
+
+.canDo-option p {
+    font-family: "Open Sans", serif;
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+
+.canDo-option i {
+    font-size: 2.5rem;
+}
+
+
+/*Projects I'm proud about*/
+
+.recentProjects {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.shape-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin-bottom: 10rem;
+}
+
+.shape {
+    height: 50rem;
+    width: 80%;
+    max-width: 90rem;
+    cursor: pointer;
+    box-shadow: 10px 20px 20px 0 rgba(152, 167, 167, 0.322);
+    overflow: hidden;
+    margin: 3rem;
+    background-color: rgba(0, 0, 0, 0.61);
+    transition-duration: 0.5s;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.shape:hover {
+    box-shadow: 0 0 0 10px rgb(48, 185, 209);
+    opacity: 3;
+}
+
+.shape-picture {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s;
+    overflow: hidden;
+}
+
+.shape-picture img {
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s;
+}
+
+.shape:hover .shape-picture img {
+    opacity: 0.3;
+}
+
+
+.button2 {
+    margin: 0 9px; 
+    background: rgba(3, 155, 155);
+    border-radius: 2rem;
+    color: #fafafa;
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+    
+}
+
+.button2:hover {
+    color: #fafafa;
+    background: rgba(189, 72, 0);
+}
+
+.shape-text {
+    position: absolute;
+    z-index: 1000;
+    padding: 2rem;
+    text-shadow: 0 0.2rem 0.5rem rgba(0,0,0,0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.shape:hover .shape-text {
+    bottom: 50%;
+    left: 50%;
+    opacity: 1;
+    filter: alpha(opacity=40);
+    transform: translateX(-50%);
+    visibility: visible;
+}
+
+.shape-text h3{
+    font-family: "Open Sans", monospace;
+    letter-spacing: .5rem;
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 1rem;
+    color: rgba(249, 105, 14, 1);
+    background: linear-gradient(
+        to right, 
+        rgb(231, 156, 42) 0%,
+        rgb(207, 87, 17) 50%,
+        rgb(194, 26, 20) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/*Footer*/
+
+footer {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    background-color: black;
+    padding: 20px;
+
+}
+
+footer p {
+    font-size: 1rem;
+    line-height: 2rem;
+    margin: 3rem;
+}
+
+footer a {
+    font-size: 2rem;
+    margin: 0 3rem;
+    transform: translate(50px);
+}
+

@@ -1,0 +1,1846 @@
+
+/* Global */
+
+*, 
+*::before, 
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-family: "Share Tech Mono", monospace;
+    font-size: 12px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    color: #e7e7e7;
+    background: rgb(27, 27, 27);
+
+}
+
+section {
+    padding: 5rem 0;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(3, 155, 155);
+}
+
+a:hover {
+    color: rgb(255, 242, 60);
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    font-size: 1.4rem;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Style for section: Nav */
+
+header {
+    width: 100%;
+    height: 5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Sets the width and centers all content to the center*/
+.container {
+    width: 100%;
+    max-width: 85rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Sets the width and centers all content to the center*/
+.nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2)
+}
+
+.logo {
+    width: 5rem;
+    position: fixed;
+    left: 20;
+    top: 0;
+}
+/* makes the inNout div go to the top right*/
+.inNout {
+    cursor: pointer;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: rgba(55, 55, 55, 0.6);
+    padding: 1.2rem;
+    border-radius: 0% 0% 0% 30%;
+    z-index: 999;
+}
+
+.lettuce1 {
+    width: 15px;
+    height: 3px;
+    margin: 5px 0;
+    background: linear-gradient(
+        135deg, 
+        rgb(58, 219, 198) 0%,
+        rgb(255, 255, 255) 100%
+    );
+}
+
+.meat {
+    width: 30px;
+    height: 3px;
+    margin: 5px 0;
+    background: linear-gradient(
+        135deg, 
+        rgb(58, 219, 198) 0%,
+        rgb(255, 255, 255) 100%
+    );
+}
+
+.lettuce2{
+    width: 15px;
+    height: 3px;
+    margin: 5px 0;
+    margin-left: 15px;
+    background: linear-gradient(
+        135deg, 
+        rgb(58, 219, 198) 0%,
+        rgb(255, 255, 255) 100%
+    );
+}
+
+/*Javascript the inNout menu to be an X*/
+
+.toggle {
+    background: none;
+}
+
+.toggle .lettuce1 {
+    transform: rotate(-45deg) translate(-5px, 6px) scaleX(2);
+    margin-left: 0px;
+}
+
+.toggle .meat {
+    opacity: 0;
+}
+
+.toggle .lettuce2 {
+    transform: rotate(45deg) translate(-5px, -6px) scaleX(2);
+    margin-left: 0px;
+}
+
+/*side bar stylin'!*/
+.self {
+    height: 9rem;
+    width: auto;
+    border-radius: 50%;
+    display: block;
+    margin: 1.5rem 0;
+}
+
+.name {
+    display: block;
+    font-size: 1.4rem;
+    color: rgb(14, 135, 249);
+}
+
+.nav-options {
+    background-color: #222222;
+    position: fixed;
+    top: 0;
+    right: -25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 998;
+    transition: all 650ms ease-in-out;
+    width: 24rem;
+    height: 100vh;
+}
+
+/*Javascript the sidebar to move when you click on it*/
+.nav-options.active {
+    right: 0;
+}
+
+.nav-option {
+    margin: 1.2rem 0;
+}
+
+.menu-link {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: #cecece;
+    letter-spacing: 1.5px;
+    opacity: 0;
+}
+
+.menu-link:hover {
+    color: rgb(255, 242, 60);
+}
+
+
+/*CSS Animation the sidebar to enter and leave */
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translate(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0px);
+    }
+}
+
+
+/* Putting flare in the Hero Area when you first enter the site */
+
+.hero-area_kk {
+    width: 100%;
+    height: 80vh;
+    background: linear-gradient(
+        100deg,
+        rgba(31, 31, 31, 0.5) 0%,
+        rgba(0, 0, 0, 0.459) 100%
+    ),
+    url("images/kk1.png") center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.hero_gh {
+    left: 50%;
+    top: 40%; 
+    width: 100%;
+    max-width: 58rem;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    transform: translate(-50%, -50%);
+}
+
+
+.hero_gh h2 {
+    width: 12ch;
+    margin: auto;
+    letter-spacing: 1.2rem;
+    font-size: 10rem;
+    font-weight: 400;
+    margin-left: -2rem;
+    overflow: hidden;
+
+    /*allows to not wrap to two lines*/
+    white-space: nowrap;
+
+    /*this is building the blinking*/
+    border-right: 4px solid rgba( 255,255,255, 1);
+    animation: type_gh 5s steps(12), flickr_gh 1s ease-in-out 8s infinite;
+}
+
+
+
+/*make the above "blink"*/
+
+@keyframes type_gh {
+    75% {
+        width: 0ch;
+        color: rgba(249, 105, 14, 1);
+    }
+    100% {
+        width: 12ch;
+    }
+}
+
+/*make the border-right flickr*/
+@keyframes flickr_gh {
+    0% {
+        border-right: 4px solid (255, 255, 255, 0);
+    }
+    100% {
+        border-right: 4px solid rgb(194, 194, 194);
+    }
+}
+
+/*continue to make edits to the hero / landing page*/
+.hero h3 {
+    font-size: 3rem;
+    margin: 1rem 0;
+    color: rgba(249, 105, 14, 1);
+    background: linear-gradient(
+        to right, 
+        rgb(249, 41, 14) 0%,
+        rgb(32, 255, 255) 50%,
+        rgb(255, 32, 100) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+.call-to-action {
+    display: flex;
+    justify-content: center;
+}
+
+.arrow {
+    color: white;
+    font-size: 4rem;
+    
+
+}
+
+.button {
+    margin: 0 9px; 
+    background: rgba(3, 155, 155);
+    border-radius: 2rem;
+    color: #fafafa;
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+}
+
+.button:hover {
+    color: #fafafa;
+    background: rgba(189, 72, 0);
+}
+
+/*styling the about*/
+
+.aboutMe {
+    width: 100%;
+    min-height: 100vh;
+    max-width: 70rem;
+    margin: auto;
+    
+}
+
+.aboutMe .container {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+.heading {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+}
+
+.imageMe img {
+    box-shadow: 20px 20px 60px 0 rgba(0, 255, 255, 0.15);
+    border-radius: 50%;
+    height: 12rem;
+    width: auto;
+    margin: 2rem;
+    
+}
+
+.hello p {
+    font-family: "Open Sans", serif;
+    font-size: 1rem;
+    padding: 0;
+    margin: 0 0 1.45rem;
+    line-height: 3rem;
+
+}
+
+.heading p {
+    font-family: "Open Sans", serif;
+    font-size: 2rem;
+    padding: 0;
+    margin: 0 0 1.45rem;
+    line-height: 3rem;
+
+}
+
+.hello h3 {
+    font-size: 3rem;
+    font-family: "Share Tech Mono", serif;
+    margin-bottom: 20px;
+    letter-spacing: .5rem;;
+    margin-top: 2rem;
+    padding-left: 3rem;
+    color: rgba(249, 105, 14, 1);
+    background: linear-gradient(
+        to right, 
+        rgb(90, 219, 170) 0%,
+        rgb(17, 137, 207) 50%,
+        rgb(20, 23, 194) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hello p {
+    font-family: "Open Sans", serif;
+    font-size: 1.5rem;
+    padding: 0;
+    margin: 0 0 1.45rem;
+    line-height: 3.5rem;
+}
+
+.elevatorPitch2 p {
+    font-family: "Open Sans", serif;
+    font-size: 2rem;
+    padding: 0;
+    margin: 0 0 1.45rem;
+    line-height: 3.5rem;
+}
+
+/*rainbow line*/
+hr {
+    margin: 4rem 4rem;
+    background: linear-gradient(
+        to right, 
+        rgb(249, 41, 14) 0%,
+        rgb(32, 255, 255) 50%,
+        rgb(255, 32, 100) 100%
+    );
+    border: 0;
+    height: 1px;
+}
+
+/*emphasize skim*/
+span.skim {
+    font-family: "Zilla Slab Highlight", monospace;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: white;
+
+}
+
+/*why hire me*/
+
+.hireMe {
+    margin: 10rem;
+    min-height: 100vh;
+    max-width: 90rem;
+    padding:1rem 0;
+    
+}
+
+.container1 {
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.heading {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 5rem;
+}
+
+.heading h2 {
+    font-size: 3rem;
+    margin: 0.5rem 0 1rem;
+    font-family: "Share Tech Mono", serif;
+    color: rgba(249, 105, 14, 1);
+    background: linear-gradient(
+            200deg,
+            rgb(52, 171, 180) 0%,
+            rgba(30, 113, 180, 0.973) 50%,
+            rgba(30, 180, 180, 0.973) 70%,
+            rgb(35, 160, 108) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+}
+
+.heading p {
+    font-family: "Share tech mono", serif;
+    text-transform: initial;
+    font-size: 1.2rem;
+}
+
+.canDo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 2rem;
+}
+
+.canDo-option {
+    height: 25rem;
+    padding: 3rem;
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    cursor: default;
+    margin-bottom: 10rem;
+    background: linear-gradient(
+        200deg,
+        rgb(0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.973) 50%,
+        rgb(51, 51, 51) 100%
+    );
+    box-shadow: 9px 10px 10px 0 rgba(252, 252, 252, 0.178);
+    
+}
+
+/*
+color: rgba(249, 105, 14, 1);
+background: linear-gradient(
+        120deg,
+        rgb(52, 103, 180) 0%,
+        rgba(30, 40, 180, 0.973) 50%,
+        rgb(35, 160, 108) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    color: rgba(249, 105, 14, 1);
+    background: linear-gradient(
+        to right, 
+        rgb(231, 156, 42) 0%,
+        rgb(207, 87, 17) 50%,
+        rgb(194, 26, 20) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    */
+
+.canDo-option h3 {
+    font-family: "Open Sans", monospace;
+    font-size: 1.5rem;
+    letter-spacing: .5rem;
+    margin-bottom: 1rem;
+    color: rgba(249, 105, 14, 1);
+    background: linear-gradient(
+        to right, 
+        rgb(231, 156, 42) 0%,
+        rgb(207, 87, 17) 50%,
+        rgb(194, 26, 20) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
+
+.canDo-option p {
+    font-family: "Open Sans", serif;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+.canDo-option i {
+    font-size: 2.5rem;
+}
+
+
+/*Projects I'm proud about*/
+
+.recentProjects {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.shape-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin-bottom: 10rem;
+}
+
+.shape {
+    height: 50rem;
+    width: 80%;
+    max-width: 90rem;
+    cursor: pointer;
+    box-shadow: 10px 20px 20px 0 rgba(152, 167, 167, 0.322);
+    overflow: hidden;
+    margin: 3rem;
+    background-color: rgba(0, 0, 0, 0.61);
+    transition-duration: 0.5s;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.shape:hover {
+    box-shadow: 0 0 0 10px rgb(255, 255, 255);
+    opacity: 3;
+}
+
+.shape-picture {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s;
+    overflow: hidden;
+}
+
+.shape-picture img {
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s;
+}
+
+.shape:hover .shape-picture img {
+    opacity: 0.2;
+}
+
+
+.shape-text {
+    position: absolute;
+    z-index: 1000;
+    padding: 2rem;
+    text-shadow: 0 0.2rem 0.5rem rgba(0,0,0,0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.shape:hover .shape-text {
+    bottom: 45%;
+    left: 50%;
+    opacity: 1;
+    filter: alpha(opacity=40);
+    transform: translateX(-50%);
+    visibility: visible;
+}
+
+.shape-text h3{
+    font-family: "Open Sans", monospace;
+    letter-spacing: .5rem;
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 1rem;
+    color: rgba(249, 105, 14, 1);
+    background: linear-gradient(
+        to right, 
+        rgb(231, 156, 42) 0%,
+        rgb(207, 87, 17) 50%,
+        rgb(194, 26, 20) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.shape-text .web {
+    font-family: "Open Sans", monospace;
+    letter-spacing: .5rem;
+    font-size: 2rem;
+    color: rgb(87, 87, 87);
+}
+
+.web:hover {
+    color: white;
+}
+
+
+.shape-text .casestudy {
+    font-family: "Open Sans", monospace;
+    letter-spacing: .5rem;
+    font-size: 2rem;
+    color: rgb(141, 137, 137);
+}
+
+.casestudy:hover {
+    color: white;
+}
+
+.learn:hover {
+    color: rgb(255, 174, 0);
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.learn {
+    color: white;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/*Footer*/
+
+footer {
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    padding: 2.5rem;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: black;
+
+}
+
+footer p {
+    font-size: 1.3rem;
+    line-height: 2rem;
+    margin: 3rem;
+}
+
+.footer-item {
+    font-size: 1.3rem;
+    margin-left: 10px;
+}
+
+ /*media breakpoints*/
+
+/* Extra small devices (phones, 600px and down) */
+/*@media only screen and (max-width: 600px) {}*/
+
+@media only screen and (max-width: 600px) {
+
+    header,
+    .hero-area,
+    .navWrapper,
+    .aboutMe,
+    .hireMe,
+    .container,
+    .recentProjects,
+    footer {
+        width: 100%;
+        margin: 0;
+    }
+
+
+   .hero-area {
+       height: 100vh;
+   }
+
+   .hero h2 {
+       letter-spacing: 1rem;
+       font-size: 1.6rem;
+       width: 29ch;
+   }
+
+   .hero h3 {
+       font-size: 1.7rem;
+   }
+
+   .hero p {
+       font-size: 1.2rem;
+   }
+
+   .button {
+        margin: 0 9px; 
+        background: rgba(3, 155, 155);
+        border-radius: 2rem;
+        color: #fafafa;
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 1rem 1rem;
+        font-size: 1rem;
+   }
+
+   .aboutMe,
+   .container {
+        flex-direction: column;
+   }
+
+   .imageMe {
+       margin-top: 5rem;
+   }
+
+   .hello h3 {
+       font-size: 1.6rem;
+       text-align: center;
+   }
+
+   .hello p {
+    font-size: 1.3rem;
+    width: 90%;
+    padding-left: 3rem;
+    color: rgb(209, 209, 209);
+}
+
+    .hello .skim {
+    font-size: 1.4rem;
+    width: 90%;
+    color: rgb(209, 209, 209);
+    }
+
+   .heading h2 {
+       text-align: center;
+       font-size: 2rem;
+   }
+   
+   .hireMe p {
+       font-size: 1.3rem;
+       text-align: left;
+       margin-left: 30px;
+       font-family: "Open-sans", sans-serif;
+       line-height: 2rem;
+   }
+
+   .canDo-option {
+       margin-bottom: 10px;
+       width: 90%;
+       margin-left: 10px;
+       height: 22rem;
+   }
+    .canDo h3 {
+        text-align: left;
+        font-size: 1.4rem;
+    }
+
+    .canDo p {
+        font-family: "Open Sans", sans-serif;
+        margin-left: -5px;
+        font-size: 1.2rem;
+        text-align: left;
+    }
+
+    .shape {
+        height: 15rem;
+        width: 100%;
+    }
+
+    .shape-picture {
+        object-fit: contain;
+
+    }
+
+    .shape-picture img {
+        opacity: 0.9;
+
+    }
+
+    .shape-text {
+        width: 100%;
+        height: 10rem;
+        text-align: center;
+    }
+
+    .shape-text h3 {
+        font-size: 1.2rem;
+        margin-top: 2rem;
+    }
+
+    .shape-text a {
+        text-align: center;
+    }
+
+    .shape-text .web,
+    .shape-text .casestudy {
+        color: white;
+        font-size: 1rem;
+    }
+
+    .casestudy:hover {
+        color: white;
+    }
+
+
+    
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  /*@media only screen and (min-width: 600px) {}*/
+
+  @media only screen and (min-width: 600px) {
+
+    header,
+    .hero-area,
+    .navWrapper,
+    .aboutMe,
+    .hireMe,
+    .container,
+    .recentProjects,
+    footer {
+        width: 100%;
+        margin: 0;
+    }
+
+
+   .hero-area {
+       height: 100vh;
+   }
+
+   .hero h2 {
+       letter-spacing: 1rem;
+       font-size: 1.8rem;
+       width: 29ch;
+   }
+
+   .hero h3 {
+       font-size: 1.9rem;
+   }
+
+   .hero p {
+       font-size: 1.2rem;
+   }
+
+   .button {
+        margin: 0 9px; 
+        background: rgba(3, 155, 155);
+        border-radius: 2rem;
+        color: #fafafa;
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 1rem 1rem;
+        font-size: 1.7rem;
+   }
+
+   .aboutMe,
+   .container {
+        flex-direction: column;
+   }
+
+   .imageMe {
+       margin-top: 5rem;
+   }
+
+   .hello h3 {
+       font-size: 3rem;
+       text-align: center;
+   }
+
+   .hello p {
+    font-size: 1.7rem;
+    width: 90%;
+    padding-left: 6rem;
+    color: rgb(209, 209, 209);
+}
+
+    .hello .skim {
+    font-size: 1.7rem;
+    width: 90%;
+    color: rgb(209, 209, 209);
+    }
+
+   .heading h2 {
+       text-align: center;
+       font-size: 3rem;
+   }
+   
+   .heading p {
+       font-size: 2rem;
+       text-align: left;
+       margin-left: 30px;
+       font-family: "Open-sans", sans-serif;
+       line-height: 2rem;
+   }
+
+   .canDo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1rem;
+}
+
+   .canDo-option {
+       margin-bottom: 10px;
+       width: 90%;
+       margin-left: 10px;
+       height: 23rem;
+   }
+    .canDo h3 {
+        text-align: left;
+        font-size: 1.7rem;
+    }
+
+    .canDo p {
+        font-family: "Open Sans", sans-serif;
+        margin-left: -5px;
+        font-size: 1.3rem;
+    }
+
+    .shape {
+        height: 15rem;
+        width: 100%;
+    }
+
+    .shape-picture {
+        object-fit: contain;
+
+    }
+
+    .shape-picture img {
+        opacity: 0.9;
+
+    }
+
+    .shape-text {
+        width: 100%;
+        height: 10rem;
+        text-align: center;
+    }
+
+    .shape-text h3 {
+        font-size: 2.8rem;
+        margin-top: 2rem;
+    }
+
+    .shape-text a {
+        text-align: center;
+    }
+
+    .shape-text .web,
+    .shape-text .casestudy {
+        color: white;
+        font-size: 1.7rem;
+    }
+
+
+    
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  /*@media only screen and (min-width: 768px) {} */
+  
+
+  @media only screen and (min-width: 768px) {
+
+    header,
+    .hero-area,
+    .navWrapper,
+    .aboutMe,
+    .hireMe,
+    .container,
+    .recentProjects,
+    footer {
+        width: 100%;
+        margin: 0;
+    }
+
+
+   .hero-area {
+       height: 100vh;
+   }
+
+   .hero h2 {
+       letter-spacing: 1rem;
+       font-size: 3rem;
+       width: 29ch;
+   }
+
+   .hero h3 {
+       font-size: 3rem;
+   }
+
+   .hero p {
+       font-size: 1.7rem;
+   }
+
+   .button {
+        margin: 0 9px; 
+        background: rgba(3, 155, 155);
+        border-radius: 2rem;
+        color: #fafafa;
+        display: inline-block;
+        margin-top: 3rem;
+        padding: 1rem 1rem;
+        font-size: 2rem;
+   }
+
+   .aboutMe,
+   .container {
+        flex-direction: column;
+   }
+
+   .imageMe {
+       margin-top: 5rem;
+   }
+
+   .hello h3 {
+       font-size: 3.5rem;
+       text-align: center;
+   }
+
+   .hello p {
+    font-size: 1.9rem;
+    width: 90%;
+    padding-left: 6rem;
+    color: rgb(209, 209, 209);
+}
+
+    .hello .skim {
+    font-size: 1.9rem;
+    width: 90%;
+    color: rgb(209, 209, 209);
+    }
+
+   .heading h2 {
+       text-align: center;
+       font-size: 3rem;
+       margin: 0 10rem;
+   }
+   
+   .heading p {
+       font-size: 1.7rem;
+       text-align: left;
+       font-family: "Open-sans", sans-serif;
+       line-height: 2rem;
+       margin: 2rem 10rem;
+   }
+   .canDo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 2rem;
+}
+
+   .canDo-option {
+       margin-bottom: 10px;
+       width: 90%;
+       margin-left: 10px;
+       height: 24rem;
+   }
+    .canDo h3 {
+        text-align: left;
+        font-size: 1.7rem;
+    }
+
+    .canDo p {
+        font-family: "Open Sans", sans-serif;
+        margin-left: -5px;
+        font-size: 1.4rem;
+    }
+
+    .shape {
+        height: 34rem;
+        width: 100%;
+    }
+
+    .shape-picture {
+        object-fit: contain;
+
+    }
+
+    .shape-picture img {
+        opacity: 0.9;
+
+    }
+
+    .shape-text {
+        width: 100%;
+        height: 10rem;
+        text-align: center;
+    }
+
+    .shape-text h3 {
+        font-size: 3rem;
+        margin-top: 2rem;
+    }
+
+    .shape-text a {
+        text-align: center;
+    }
+
+    .shape-text .web,
+    .shape-text .casestudy {
+        color: rgb(104, 104, 104);
+        font-size: 2rem;
+    }
+
+    .footer-item {
+        font-size: 2rem;
+    }
+
+    
+  }
+  
+
+/* Large devices (laptops/desktops, 992px and up) */
+  /*@media only screen and (min-width: 992px) {}*/
+  
+  @media only screen and (min-width: 992px) {
+    header,
+    .hero-area,
+    .navWrapper,
+    .aboutMe,
+    .hireMe,
+    .container,
+    .recentProjects,
+    footer {
+        width: 100%;
+        margin: 0;
+    }
+
+
+   .hero-area {
+       height: 100vh;
+   }
+
+   .hero h2 {
+       letter-spacing: 1rem;
+       font-size: 2.7rem;
+       width: 29ch;
+   }
+
+   .hero h3 {
+       font-size: 3rem;
+   }
+
+   .hero p {
+       font-size: 1.7rem;
+   }
+
+   .button {
+        margin: 0 9px; 
+        background: rgba(3, 155, 155);
+        border-radius: 2rem;
+        color: #fafafa;
+        display: inline-block;
+        margin-top: 3rem;
+        padding: 1rem 1rem;
+        font-size: 1.5rem;
+   }
+
+   .aboutMe,
+   .container {
+        flex-direction: column;
+        width: 100%;
+   }
+
+   .imageMe {
+       margin-top: 5rem;
+   }
+
+   .hello h3 {
+       font-size: 3rem;
+       
+   }
+
+   .hello p {
+    font-family: "Open Sans", serif;
+    font-size: 2rem;
+    padding: 0;
+    margin: 0 0 1.45rem;
+    line-height: 4rem;
+    margin-left: 4rem;
+    width: 70rem;
+}
+
+    .hello .skim {
+    font-size: 2rem;
+    width: 90%;
+    color: rgb(209, 209, 209);
+    }
+
+   .heading h2 {
+       text-align: center;
+       font-size: 3rem;
+       margin: 0 0rem;
+   }
+   
+   .heading p {
+       font-size: 2rem;
+       text-align: left;
+       font-family: "Open-sans", sans-serif;
+       line-height: 4rem;
+       margin: 2rem 0rem;
+
+   }
+
+   .canDo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 10rem;
+}
+
+   .canDo-option {
+       margin-bottom: 10px;
+       width: 100%;
+       height: 32rem;
+       width: 22rem;
+       left: -40%;
+   }
+    .canDo h3 {
+        text-align: left;
+        font-size: 1.7rem;
+    }
+
+    .canDo p {
+        font-family: "Open Sans", sans-serif;
+        margin-left: -5px;
+        font-size: 1.4rem;
+        line-height: 3rem;
+        text-align: left;
+    }
+
+    .shape {
+        height: 53rem;
+        width: 100%;
+    }
+
+    .shape-picture {
+        object-fit: contain;
+
+    }
+
+    .shape-picture img {
+        opacity: 0.9;
+
+    }
+
+    .shape-text {
+        width: 100%;
+        height: 10rem;
+        text-align: center;
+    }
+
+    .shape-text h3 {
+        font-size: 4rem;
+        margin-top: 2rem;
+       margin: 0 10rem;
+
+    }
+
+    .shape-text a {
+        text-align: center;
+
+    }
+
+    .shape-text .web,
+    .shape-text .casestudy {
+        color: rgb(104, 104, 104);
+        font-size: 2.5rem;
+        
+    }
+
+    .web:hover {
+        color: white;
+    }
+
+    .footer-item {
+        font-size: 2rem;
+    }
+
+    
+  }
+  
+
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  /*@media only screen and (min-width: 1200px) {}*/
+
+  @media only screen and (min-width: 1200px) {
+    header,
+    .hero-area,
+    .navWrapper,
+    .aboutMe,
+    .hireMe,
+    .container,
+    .recentProjects,
+    footer {
+        width: 100%;
+        margin: 0;
+    }
+
+
+   .hero-area {
+       height: 100vh;
+   }
+
+   .hero h2 {
+       letter-spacing: 1rem;
+       font-size: 2.7rem;
+       width: 29ch;
+   }
+
+   .hero h3 {
+       font-size: 3rem;
+   }
+
+   .hero p {
+       font-size: 1.7rem;
+   }
+
+   .button {
+        margin: 0 9px; 
+        background: rgba(3, 155, 155);
+        border-radius: 2rem;
+        color: #fafafa;
+        display: inline-block;
+        margin-top: 3rem;
+        padding: 1rem 1rem;
+        font-size: 1.5rem;
+   }
+
+   .aboutMe,
+   .container {
+        flex-direction: column;
+        width: 100%;
+   }
+
+   .imageMe {
+       margin-top: 5rem;
+   }
+
+   .hello h3 {
+       font-size: 3rem;
+       
+   }
+
+   .hello p {
+    font-family: "Open Sans", serif;
+    font-size: 2rem;
+    padding: 0;
+    margin: 0 0 1.45rem;
+    line-height: 4rem;
+    margin-left: 4rem;
+    width: 70rem;
+}
+
+    .hello .skim {
+    font-size: 2rem;
+    width: 90%;
+    color: rgb(209, 209, 209);
+    }
+
+   .heading h2 {
+       text-align: center;
+       font-size: 3rem;
+       margin: 0 0rem;
+   }
+   
+   .heading p {
+       font-size: 2rem;
+       text-align: left;
+       font-family: "Open-sans", sans-serif;
+       line-height: 4rem;
+       margin: 2rem 0rem;
+
+   }
+
+   .canDo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 10rem;
+}
+
+   .canDo-option {
+       margin-bottom: 10px;
+       width: 100%;
+       height: 32rem;
+       width: 22rem;
+       left: -40%;
+   }
+    .canDo h3 {
+        text-align: left;
+        font-size: 1.7rem;
+    }
+
+    .canDo p {
+        font-family: "Open Sans", sans-serif;
+        margin-left: -5px;
+        font-size: 1.5rem;
+        line-height: 3rem;
+        text-align: left;
+    }
+
+    .shape {
+        height: 53rem;
+        width: 100%;
+    }
+
+    .shape-picture {
+        object-fit: contain;
+
+    }
+
+    .shape-picture img {
+        opacity: 0.9;
+
+    }
+
+    .shape-text {
+        width: 100%;
+        height: 10rem;
+        text-align: center;
+    }
+
+    .shape-text h3 {
+        font-size: 4rem;
+        margin-top: 2rem;
+       margin: 0 10rem;
+
+    }
+
+    .shape-text a {
+        text-align: center;
+
+    }
+
+    .shape-text .web,
+    .shape-text .casestudy {
+        color: rgb(104, 104, 104);
+        font-size: 2.5rem;
+    }
+
+    .web:hover,
+    .casestudy:hover {
+        color: white;
+    }
+
+    .footer-item {
+        font-size: 2rem;
+    }
+
+    
+  }
+
+  /*growhaus*/
+
+  .hero-area_gh {
+    width: 100%;
+    height: 80vh;
+    background: linear-gradient(
+        180deg,
+        rgba(31, 31, 31, 0) 0%,
+        rgba(0, 0, 0, 0) 100%
+    ),
+    url("images/kk1.png") center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.hero-area_kk {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(
+        180deg,
+        rgba(31, 31, 31, 0) 0%,
+        rgba(0, 0, 0, 0) 100%
+    ),
+    url("images/kk1.png") center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+  
+
+  .hero_gh h2 {
+    width: 50ch;
+    width: 100%;
+    margin: auto;
+    letter-spacing: 1.2rem;
+    font-size: 5rem;
+    font-weight: 400;
+    margin-left: -2rem;
+    overflow: hidden;
+    color: black;
+
+    /*allows to not wrap to two lines*/
+    white-space: nowrap;
+
+    /*this is building the blinking*/
+    border-right: 4px solid rgb(184, 32, 32);
+    animation: type_gh 5s steps(90), flickr_gh 1s ease-in-out 8s infinite;
+}
+
+
+/*make the above "blink"*/
+
+@keyframes type_gh {
+    75% {
+        width: 0;
+        color: rgba(249, 105, 14, 1);
+    }
+    100% {
+        width: 50ch;
+    }
+}
+
+/*make the border-right flickr*/
+@keyframes flickr_gh {
+    0% {
+        border-right: 4px solid (255, 255, 255, 0);
+    }
+    100% {
+        border-right: 4px solid rgb(194, 194, 194);
+    }
+}
+
+
+
+.hero_gh p {
+    font-size: 2rem;
+    text-transform: none;
+    margin-left: 4rem;
+    font-weight: 300;
+    margin-bottom: 5rem;
+    color: black;
+    font-family: "open sans", sans-serif;
+
+}
+
+.summary h2 {
+    font-family: "open sans", sans-serif;;
+    width: 50%;
+    position: relative;
+    left: 20%;
+    font-size: 3rem;
+}
+
+.gh {
+    margin-bottom: 5rem;
+    margin-top: 1rem;
+    border: 0;
+    height: 1px;
+    width: 15rem;
+    position: relative;
+    left: 17%;
+}
+
+.subcategory h3 {
+    font-family: "open sans", sans-serif;;
+    width: 50%;
+    position: relative;
+    left: 20%;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    line-height: 4rem;
+
+}
+
+.subcategory p {
+    font-family: "open sans", sans-serif;
+    width: 50%;
+    max-width: 100rem;
+    position: relative;
+    left: 20%;
+    line-height: 3rem;
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+.group h3 {
+    font-family: "open sans", sans-serif;;
+    width: 50%;
+    position: relative;
+    left: 20%;
+    margin-bottom: 10px;
+    font-size: 2rem;
+
+}
+
+.group h4 {
+    font-family: "open sans", sans-serif;;
+    width: 50%;
+    position: relative;
+    left: 20%;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+
+}
+
+.asset {
+    width: 50%;
+    position: relative;
+    left: 20%;
+    margin-bottom: 10px;
+}
+
+
+.group p {
+    font-family: "open sans", sans-serif;
+    width: 50%;
+    position: relative;
+    left: 20%;
+    line-height: 3rem;
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+.cs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 0rem;
+    width: 100%;
+
+}
+
+.cs-box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    cursor: default;
+    margin-bottom: 10rem;
+    width: 100%;
+}
+
+.solution {
+    position: relative;
+    left: 20%;
+    margin-bottom: 10px;
+}
+
+.solution h3 {
+    font-family: "open sans", sans-serif;
+    font-size: 2rem;
+
+}
+
+.role p {
+    font-family: "open sans", sans-serif;
+    position: relative;
+    left: 20%;
+    line-height: 3rem;
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+.role {
+    padding-top: 6rem;
+}
+
+.role h4 {
+    font-size: 1.7rem;
+}
+
+.group2 {
+    width: 100%;
+    min-height: 30vh;
+    max-width: 100vh;
+    margin: auto;
+    
+}
+
+.container2{
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.box1 img{
+    position: relative;
+    height: auto;
+    width: 100%;
+    max-width: 50rem;   
+}
+
+.box1c img{
+    position: relative;
+    height: auto;
+    width: 100%;
+    max-width: 50rem;  
+    margin-left: 6rem; 
+}
+
+.box2{
+    margin-left: 3rem;
+}
+
+.box2 h3{
+    font-family: "open sans", sans-serif;
+    font-size: 2rem;
+}
+
+.box2 h4{
+    font-family: "open sans", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+.box2 p{
+    font-family: "open sans", sans-serif;
+    font-size: 1.3rem;
+    margin-top: 10px;
+}
+
+.box2a h3{
+    font-family: "open sans", sans-serif;
+    font-size: 2rem;
+    
+}
+
+.box2a h4{
+    font-family: "open sans", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+.box2a p{
+    font-family: "open sans", sans-serif;
+    font-size: 1.3rem;
+    margin-top: 10px;
+    
+
+}
+
+.yellow {
+    color: rgb(194, 177, 21);
+    margin-right: 10px;
+}
+
+.cs2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 0rem;
+    width: 90%;
+    align-content: center;
+    
+}
+
+.cs-box2 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    cursor: default;
+    width: 100%;
+    align-content: center;
+}
+
+.group h3 {
+    font-family: "open sans", sans-serif;;
+    width: 50%;
+    position: relative;
+    left: 20%;
+    margin-bottom: 10px;
+    font-size: 2rem;
+
+}
+
+.group h2 {
+    font-family: "open sans", sans-serif;;
+    width: 50%;
+    position: relative;
+    left: 13%;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+
+}
+
+.subcategory ul li {
+    font-family: "open sans", sans-serif;
+    list-style-type: square;
+    width: 60%;
+    max-width: 100rem;
+    position: relative;
+    left: 22%;
+    line-height: 3rem;
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+.box1a img{
+    position: relative;
+    height: auto;
+    width: 100%;
+    max-width: 40%;
+    left: 20%;
+}
