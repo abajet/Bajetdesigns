@@ -273,7 +273,7 @@
                     
                 <br />
                 
-                    <a href="#">
+                    <a href="kitchenkeeper.html">
                         <span class="casestudy">Case Study</span>
                     </a>
                 </div>
